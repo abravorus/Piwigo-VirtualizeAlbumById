@@ -22,7 +22,7 @@ function virtualize_admin_menu($menu)
   array_push(
     $menu,
     array(
-      'NAME' => 'Virtualize Album',
+      'NAME' => 'Virtualize',
       'URL'  => get_admin_plugin_menu_link(dirname(__FILE__).'/admin.php')
       )
     );
