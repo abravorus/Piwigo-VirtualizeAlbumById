@@ -11,3 +11,8 @@ Make sure you have a backup of your "galleries" directory and a dump of your dat
 
 Once category is virtual, you can move it the way you want, which is not possible for physical category. And you can change freely 
 the structure of you gallery created, for example, during automatic conversion from Gallery2 to Piwigo.
+
+Plugin was checked for
+Piwigo version: 2.9.3
+PHP version: 7.0.27-0+deb9u1 
+MySQL version: 5.7.21-20
