@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: VirtualizeAlbumById
-Version: 0.1.a
+Version: 0.2.a
 Description: Make category virtual and move photos from "galleries" to "upload"
-Plugin URI: http://piwigo.org/ext/extension_view.php?eid=511
+Plugin URI: https://piwigo.org/ext/extension_view.php?eid=878
 Author: abravo
 Author URI: https://terijoki.spb.ru
 */
@@ -16,13 +16,13 @@ if (!defined('PHPWG_ROOT_PATH'))
 // define('COMMUNITY_PATH' , PHPWG_PLUGINS_PATH.basename(dirname(__FILE__)).'/');
 
 /* Plugin admin */
-add_event_handler('get_admin_plugin_menu_links', 'virtualize_admin_menu');
-function virtualize_admin_menu($menu)
+add_event_handler('get_admin_plugin_menu_links', 'virtualizebyid_admin_menu');
+function virtualizebyid_admin_menu($menu)
 {
   array_push(
     $menu,
     array(
-      'NAME' => 'Virtualize',
+      'NAME' => 'Virtualize Album',
       'URL'  => get_admin_plugin_menu_link(dirname(__FILE__).'/admin.php')
       )
     );
