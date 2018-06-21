@@ -3,6 +3,7 @@
 // | Piwigo - a PHP based picture gallery                                  |
 // +-----------------------------------------------------------------------+
 // | Copyright(C) 2011      Pierrick LE GALL             http://piwigo.org |
+// | Copyright(C) 2018      Alexandr Bravo         https://terijoki.spb.ru |
 // +-----------------------------------------------------------------------+
 // | This program is free software; you can redistribute it and/or modify  |
 // | it under the terms of the GNU General Public License as published by  |
@@ -39,8 +40,10 @@ check_status(ACCESS_ADMINISTRATOR);
 // |                            add permissions                            |
 // +-----------------------------------------------------------------------+
 
-if (isset($_POST['submit']))
+if (isset($_POST['submit']) && $_POST['album_id']>0)
 {
+  $aid = $_POST['album_id'];
+
   $query = '
 SELECT
     path AS oldpath,
@@ -48,7 +51,8 @@ SELECT
     representative_ext,
     id
   FROM '.IMAGES_TABLE.'
-  WHERE path NOT LIKE \'./upload/%\'
+  WHERE path NOT LIKE \'./upload/%\' 
+  AND storage_category_id = '.$aid.'
 ;';
   $result = pwg_query($query);
   while ($row = pwg_db_fetch_assoc($result))
@@ -67,6 +71,8 @@ SELECT
     $newfilename = $newfilename_wo_ext.'.'.$extension;
 
     $newpath = $upload_dir.'/'.$newfilename;
+
+if (!isset($_POST['debug'])) {
 
     if (rename($row['oldpath'], $newpath))
     {
@@ -94,15 +100,24 @@ UPDATE '.IMAGES_TABLE.'
           )
         );
     }
+
+} else {
+  $dbg = 'album id='.$aid.' old filename='.$file_for_md5sum.' new filename='.$newfilename.' new path='. $newpath.' <br>';
+  array_push($page['infos'], $dbg);
+}
+
   }
 
+ if (!isset($_POST['debug'])) {
   $query = '
 UPDATE '.CATEGORIES_TABLE.'
-  SET dir = NULL
+  SET dir = NULL WHERE id = '.$aid.'
 ;';
   pwg_query($query);
 
   array_push($page['infos'], l10n('Information data registered in database'));
+ }
+
 }
 
 

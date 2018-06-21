@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: Virtualize
-Version: auto
-Description: Make categories virtual and move photos from "galleries" to "upload"
-Plugin URI: http://piwigo.org/ext/extension_view.php?eid=
-Author: plg
-Author URI: http://piwigo.wordpress.com
+Plugin Name: VirtualizeAlbumById
+Version: 0.1.a
+Description: Make category virtual and move photos from "galleries" to "upload"
+Plugin URI: http://piwigo.org/ext/extension_view.php?eid=511
+Author: abravo
+Author URI: https://terijoki.spb.ru
 */
 
 if (!defined('PHPWG_ROOT_PATH'))

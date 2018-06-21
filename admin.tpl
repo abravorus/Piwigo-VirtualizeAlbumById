@@ -11,14 +11,16 @@
 
 <div class="warnings">
   <ul>
-    <li>{'This plugin moves all your photos from <em>"galleries"</em> (added with the synchronization process) to <em>"upload"</em> and mark categories as virtual.'|@translate}</li>
+    <li>{'This plugin moves all your photos from album with given Id from <em>"galleries"</em> (added with the synchronization process) to <em>"upload"</em> and mark this category as virtual.'|@translate}</li>
     <li>{'Make sure you have a backup of your <em>"galleries"</em> directory and a dump of your database.'|@translate}</li>
-    <li>{'Once categories are virtual, you can move them the way you want.'|@translate}</li>
+    <li>{'Once category is virtual, you can move it the way you want.'|@translate}</li>
   </ul>
 </div>
 
 <form method="post" name="virtualize" action="{$F_ADD_ACTION}" class="properties">
   <p>
+  	Debug, no action: <input type="checkbox" name="debug" value="1" checked> <br />
+    Physical (added with the synchronization process) album Id: <input type="number" size="5" name="album_id" value="0" /> <br />
     <input class="submit" type="submit" name="submit" value="{'Start to virtualize'|@translate}"/>
   </p>
 </form>
