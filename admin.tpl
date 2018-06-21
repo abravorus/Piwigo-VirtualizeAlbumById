@@ -6,7 +6,7 @@
 {/literal}
 
 <div class="titrePage">
-  <h2>Virtualize</h2>
+  <h2>Virtualize Album By Id</h2>
 </div>
 
 <div class="warnings">
