@@ -27,7 +27,8 @@ if( !defined("PHPWG_ROOT_PATH") )
 
 include_once(PHPWG_ROOT_PATH.'admin/include/functions.php');
 
-$admin_base_url = get_root_url().'admin.php?page=plugin&section=virtualize%2Fadmin.php';
+// $admin_base_url = get_root_url().'admin.php?page=plugin&section=virtualize%2Fadmin.php';
+$admin_base_url = get_root_url().'admin.php?page=plugin&section=Piwigo-VirtualizeAlbumById%2Fadmin.php';
 load_language('plugin.lang', dirname(__FILE__).'/');
 
 // +-----------------------------------------------------------------------+
